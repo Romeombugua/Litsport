@@ -1269,6 +1269,23 @@ section.upcoming-meetings .categories .main-button-red a {
 contact us
 --------------------------------------------- 
 */
+.responsive-wrapper {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  padding-bottom: 50%; /* Adjust this value to control aspect ratio */
+  margin-bottom: 3em;
+}
+
+.responsive-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
 
 section.contact-us {
   background-image: url(../images/meetings-bg.jpg);
@@ -1285,7 +1302,7 @@ section.contact-us #contact {
   border-radius: 20px;
   padding: 40px;
   width: 70%;
-  margin-left: 15%;
+  margin-bottom: auto;
 }
 
 section.contact-us #contact h2 {
@@ -1757,6 +1774,24 @@ responsive
     margin-bottom: 30px;
   }
 
+  .responsive-wrapper {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    padding-bottom: 85%; /* Adjust this value to control aspect ratio */
+    margin-bottom: 3em;
+  }
+  
+  .responsive-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
 }
 
 @media (max-width: 767px) {
@@ -1826,6 +1861,23 @@ responsive
     font-size: 14px;
     max-width: 570px;
     margin: 1.5em;
+  }
+  .responsive-wrapper {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    padding-bottom: 90%; /* Adjust this value to control aspect ratio */
+    margin-bottom: 3em;
+  }
+  
+  .responsive-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
   }
 
 }
