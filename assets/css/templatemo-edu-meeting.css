@@ -1079,7 +1079,7 @@ section.upcoming-meetings {
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
-  padding-top: 250px;
+  padding-top: 500px;
   padding-bottom: 110px;
 }
 
@@ -1749,7 +1749,7 @@ responsive
   }
 
   section.upcoming-meetings {
-    padding-top: 300px;
+    padding-top: 600px;
   }
 
   section.upcoming-meetings .categories {
@@ -1811,7 +1811,9 @@ responsive
   .header-area .main-nav .nav li ul.sub-menu li a {
     color: #1f272b;
   }
-
+  section.upcoming-meetings {
+    padding-top: 600px;
+  }
   section.contact-us #contact {
     margin-bottom: 0px;
     width:95%;
