@@ -772,8 +772,9 @@ banner
 services
 ---------------------------------------------
 */
-#images{
+.class-image{
   border-radius: 10px;
+  height:40vh;
 }
 
 #case1{
