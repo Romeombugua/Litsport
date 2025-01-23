@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Reputation Coin - Litsport</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #a12c2f;
+            --crypto-gradient: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            --text-color: #2a2a2a;
+            --glow-color: rgba(41, 98, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            line-height: 1.6;
+            background: #0c0c0c;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(12, 12, 12, 0.95);
+            padding: 1rem 2rem;
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+            text-shadow: 0 0 10px var(--glow-color);
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 2rem;
+            background: var(--crypto-gradient);
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 3rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, #fff, #f0f0f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px var(--glow-color);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+        }
+
+        .content-section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #fff, #f0f0f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .card h3 {
+            color: #fff;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .notice-box {
+            background: rgba(255, 193, 7, 0.1);
+            border-left: 4px solid #ffc107;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            margin: 3rem 0;
+            backdrop-filter: blur(10px);
+        }
+
+        footer {
+            background: rgba(12, 12, 12, 0.95);
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+
+        .particle {
+            position: fixed;
+            background: rgba(255, 255, 255, 0.1);
+            pointer-events: none;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .binary {
+            position: fixed;
+            color: rgba(255, 255, 255, 0.1);
+            font-family: monospace;
+            pointer-events: none;
+            user-select: none;
+            z-index: 1;
+        }
+
+        .glow-point {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            background: #fff;
+            border-radius: 50%;
+            filter: blur(2px);
+            animation: pulse 2s infinite;
+            z-index: 1;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(2); opacity: 0; }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .nav-links {
+                display: none;
+            }
+            .hero-content {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="index.html" class="logo">Litsport</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="#features">Features</a>
+                <a href="#about">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Reputation Coin</h1>
+            <p>A revolutionary meme coin fostering justice, accountability, and community in the legal world</p>
+        </div>
+    </section>
+
+    <section class="content-section" id="features">
+        <h2 class="section-title">The Problem</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Weaponized Reputation</h3>
+                <p>Legal reputation is being used as a tool for intimidation rather than a measure of integrity and credibility in the profession.</p>
+            </div>
+            <div class="card">
+                <h3>Cost Manipulation</h3>
+                <p>Law firms misuse bills of costs to intimidate and deter individuals from seeking justice, creating financial barriers to legal remedies.</p>
+            </div>
+            <div class="card">
+                <h3>Procedural Gaming</h3>
+                <p>Legal loopholes are exploited to sidestep case merits, undermining the fundamental principles of justice and fairness.</p>
+            </div>
+        </div>
+
+        <h2 class="section-title">What Is Reputation Coin?</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="feature-icon">⚖️</div>
+                <h3>Symbol of Accountability</h3>
+                <p>Representing our collective effort to spotlight legal practices that undermine fairness and support those who fight for justice.</p>
+            </div>
+            <div class="card">
+                <div class="feature-icon">👥</div>
+                <h3>Community First</h3>
+                <p>Building a network of individuals committed to justice and ethical legal practices, fostering transparency and accountability.</p>
+            </div>
+            <div class="card">
+                <div class="feature-icon">📢</div>
+                <h3>Raising Awareness</h3>
+                <p>Empowering individuals to challenge and expose systemic legal abuse through collective action and support.</p>
+            </div>
+        </div>
+
+        <div class="notice-box">
+            <h3>Important Notice</h3>
+            <p>Reputation Coin is not designed for profit and is not tradable. It exists purely as a symbol of our community's commitment to holding legal practitioners accountable for upholding the rule of law.</p>
+        </div>
+    </section>
+
+    <footer>
+        <a href="https://litsport.com/terms.pdf">Terms and Conditions</a>
+        <a href="https://litsport.com/privacy.pdf">Privacy Policy</a>
+        <p>Copyright © 2024 Litsport.io All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function random(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+
+        function createParticles(count) {
+            for (let i = 0; i < count; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.width = random(2, 5) + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.left = random(0, 100) + 'vw';
+                particle.style.top = random(0, 100) + 'vh';
+                particle.style.opacity = random(0.1, 0.3);
+                particle.style.animation = `float ${random(10, 20)}s infinite linear`;
+                document.body.appendChild(particle);
+            }
+        }
+
+        function createBinaryStream(count) {
+            for (let i = 0; i < count; i++) {
+                const binary = document.createElement('div');
+                binary.className = 'binary';
+                binary.textContent = Math.random() > 0.5 ? '1' : '0';
+                binary.style.left = random(0, 100) + 'vw';
+                binary.style.top = random(0, 100) + 'vh';
+                binary.style.fontSize = random(10, 20) + 'px';
+                binary.style.animation = `float ${random(5, 15)}s infinite linear`;
+                document.body.appendChild(binary);
+
+                setInterval(() => {
+                    binary.textContent = Math.random() > 0.5 ? '1' : '0';
+                }, random(1000, 3000));
+            }
+        }
+
+        function createGlowPoints(count) {
+            for (let i = 0; i < count; i++) {
+                const point = document.createElement('div');
+                point.className = 'glow-point';
+                point.style.left = random(0, 100) + 'vw';
+                point.style.top = random(0, 100) + 'vh';
+                point.style.animationDelay = random(0, 2) + 's';
+                document.body.appendChild(point);
+            }
+        }
+
+        window.addEventListener('load', () => {
+            createParticles(30);
+            createBinaryStream(20);
+            createGlowPoints(15);
+        });
+
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                document.querySelectorAll('.particle, .binary, .glow-point').forEach(el => el.remove());
+                createParticles(30);
+                createBinaryStream(20);
+                createGlowPoints(15);
+            }, 250);
+        });
+    </script>
+</body>
+</html>
