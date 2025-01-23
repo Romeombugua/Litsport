@@ -73,12 +73,18 @@
             justify-content: center;
             position: relative;
             padding: 2rem;
+            padding-top: calc(4rem + 64px); /* Added padding for navbar height */
             background: var(--crypto-gradient);
             overflow: hidden;
         }
 
-        .hero-content {
-            max-width: 800px;
+        .hero-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4rem;
+            max-width: 1200px;
+            width: 100%;
             position: relative;
             z-index: 2;
             background: rgba(255, 255, 255, 0.1);
@@ -86,6 +92,38 @@
             border-radius: 20px;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .hero-image img:hover {
+            transform: scale(1.02);
+        }
+
+        @media (max-width: 768px) {
+            .hero-container {
+                flex-direction: column;
+                gap: 2rem;
+                padding: 2rem;
+            }
         }
 
         .hero h1 {
@@ -226,9 +264,14 @@
     </nav>
 
     <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>Reputation Coin</h1>
-            <p>A revolutionary meme coin fostering justice, accountability, and community in the legal world</p>
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Reputation Coin</h1>
+                <p>A revolutionary meme coin fostering justice, accountability, and community in the legal world</p>
+            </div>
+            <div class="hero-image">
+                <img src="assets/images/reputation.png" alt="Reputation Coin Concept" />
+            </div>
         </div>
     </section>
 
